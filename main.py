@@ -12,9 +12,6 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-logger.debug('this is debug')
-logger.critical('this is critical')
-
 def connect_api():
     if not os.path.isfile('./config/access.conf'):
         logger.debug('Api Key not found. Getting user to enter it')
