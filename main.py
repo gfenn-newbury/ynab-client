@@ -2,6 +2,7 @@ import os
 import base64
 import logging
 import logging.handlers
+import ynab.objects.transaction
 
 logger = logging.getLogger('YNABPython')
 logger.setLevel(logging.DEBUG)
@@ -27,7 +28,9 @@ def connect_api():
         apiKey = base64.b64decode(apikeyEncoded)
 
 def main():
-    api = connect_api()
+    #api = connect_api()
+    trans = ynab.objects.transaction.transaction('01/01/19','test','category:test','0.00','1.00','test')
+    print(trans.to_dict())
 
 if __name__ == '__main__':
     main()
