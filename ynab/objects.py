@@ -11,10 +11,60 @@ class transaction:
     def to_dict(self):
         return {
                 'Date': self.date,
-                'Payee': self.payee,
-                'Category': self.category,
+                'Payee': self.payee.getName(),
+                'Category': self.category.getName(),
                 'In': self.amountIn,
                 'Out': self.amountOut,
                 'Memo': self.memo,
                 }
 
+class category:
+
+    def __init__(self, name, parent, catType, children, budgeted):
+        self.name = name
+        self.type = catType
+        if parent and children:
+            print('Must only have parent or child')
+        elif parent:
+            self.parent = parent
+            self.budgeted = budgeted
+        elif children:
+            self.children = children
+
+    def addChild(child):
+        self.children.append(child)
+
+    def getName(self):
+        return self.name
+
+class budget:
+
+    def __init__(self, categories):
+        self.categories = categories
+
+class account:
+
+    def __init__(self, name, transactions, opened, closed):
+        self.name = name
+        self.transactions = transactions # List of transactions which belong to this account
+        self.opened = opened
+        self.closed = closed
+
+    def addTransaction(self, transaction):
+        self.transactions.append(transaction)
+
+    def to_dict(self):
+        return {
+                'Name' : self.name,
+                'Transactions' : self.transactions,
+                'Opened' : self.opened,
+                'Closed' : self.closed
+                }
+
+class payee:
+
+    def __init__(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name

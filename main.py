@@ -16,6 +16,7 @@ logger.addHandler(fh)
 
 def connect_api():
     ynab()
+
 def main():
     #api = connect_api()
     trans = transaction('01/01/19','test','category:test','0.00','1.00','test')
