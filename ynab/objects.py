@@ -17,3 +17,4 @@ class transaction:
                 'Out': self.amountOut,
                 'Memo': self.memo,
                 }
+
