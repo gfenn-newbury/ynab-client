@@ -9,12 +9,12 @@ class AuthTest(unittest.TestCase):
         os.mkdir('./config')
         with open('./config/access.conf', 'w') as f:
             f.write('VGVzdAo=')
-        api.auth()
-        self.assertEqual(api.auth.get_apikey(), 'Test')
+        ynab = api.auth()
+        self.assertEqual(ynab.get_apikey(), 'Test')
 
     def test_auth_from_key(self):
-        api.auth(key='Test')
-        self.assertEqual(api.auth.get_apikey(), 'Test')
+        ynab = api.auth(key='Test')
+        self.assertEqual(ynab.get_apikey(), 'Test')
 
 
 if __name__ == '__main__':
