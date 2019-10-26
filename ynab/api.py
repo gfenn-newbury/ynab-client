@@ -17,7 +17,7 @@ class auth:
         self.authenticate()
 
     def get_apikey(self):
-        if not os.path.isfile('./config/access.conf') or not self.key:
+        if not os.path.isfile('./config/access.conf') and not self.key:
             logger.debug('Api Key not found. Getting user to enter it')
             apikey = input('Please enter your YNAB API key: ')
             apikeyEncoded = base64.b64encode(apikey)
@@ -30,8 +30,8 @@ class auth:
             apikeyEncoded = f.read()
             f.close()
             return base64.b64decode(apikeyEncoded)
-        else:
-            return
+        elif self.key:
+            return self.key
 
     def authenticate(self):
         url = 'https://api.youneedabudget.com'
