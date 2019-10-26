@@ -12,8 +12,8 @@ class auth:
         self.logger = logger
         self.key = key
         if not self.key:
-            self.key = self.get_apikey()
-        self.authenticate()
+            self.key = self.get_apikey(self)
+        self.authenticate(self)
 
     def get_apikey(self):
         if not os.path.isfile('./config/access.conf') and not self.key:
