@@ -1,5 +1,5 @@
 import unittest
-from ... import ynab
+from .. import objects
 
 
 class CategoryListTests(unittest.TestCase):
@@ -10,10 +10,8 @@ class CategoryListTests(unittest.TestCase):
 
 class CategoryStorageTests(unittest.TestCase):
 
-
-
     def get_test_category(self):
-        test_category = ynab.category(
+        test_category = objects.category(
             'TestCat',
             'TestCatParent',
             '',
