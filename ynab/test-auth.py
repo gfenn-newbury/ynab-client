@@ -1,10 +1,12 @@
 import unittest
 import api
+import os
 
 
 class AuthTest(unittest.TestCase):
 
     def test_auth_from_file(self):
+        os.mkdir('.config')
         with open('./config/access.conf', 'w') as f:
             f.writeline('VGVzdAo=')
         api.auth()
