@@ -1,15 +1,14 @@
-from ynab.objects import transaction, account, budget, category, payee
-from pprint import pprint
+import unittest
+from ynab.objects import category
 
-def main():
-    c = category('TestCat', '', 'child', '', '')
-    p = payee('Guy Newbury')
-    transactions = []
-    transactions.append(transaction('01/01/2019', p, c, '1.00', '0.00', 'TestMemo').to_dict())
-    transactions.append(transaction('02/01/2019', p, c, '1.00', '0.00', 'TestMemo2').to_dict())
 
-    a = account('Test Account', transactions, '01/01/2019', '')
-    pprint(a.to_dict())
+class TestYnabObjects(unittest.TestCase):
+
+    def test_category_name(self):
+        test_category = category('TestCat', 'TestCatParent', '', '', '10.33')
+        expected_category = 'TestCat'
+        self.assertEqual(test_category.getName(), expected_category)
+
 
 if __name__ == '__main__':
-    main()
+    unittest.main()
