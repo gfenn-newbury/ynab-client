@@ -1,6 +1,5 @@
 import unittest
-import sys
-sys.path.append('..')
+from ... import ynab
 
 
 class CategoryListTests(unittest.TestCase):
@@ -11,10 +10,10 @@ class CategoryListTests(unittest.TestCase):
 
 class CategoryStorageTests(unittest.TestCase):
 
-    from ..objects import category
+
 
     def get_test_category(self):
-        test_category = self.category(
+        test_category = ynab.category(
             'TestCat',
             'TestCatParent',
             '',

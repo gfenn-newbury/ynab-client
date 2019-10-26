@@ -1,21 +1,20 @@
 import unittest
 import os
+from ... import ynab
 
 
 class AuthTest(unittest.TestCase):
 
-    from ..api import auth
-
     def test_auth_from_file(self):
         with open('./config/access.conf', 'w') as f:
             f.writeline('VGVzdAo=')
-        self.auth()
+        ynab.auth()
         os.remove('./config/access.conf')
-        self.assertEqual(self.auth.get_apikey(), 'Test')
+        self.assertEqual(ynab.auth.get_apikey(), 'Test')
 
     def test_auth_from_key(self):
-        self.auth(key='Test')
-        self.assertEqual(self.auth.get_apikey(), 'Test')
+        ynab.auth(key='Test')
+        self.assertEqual(ynab.auth.get_apikey(), 'Test')
 
 
 if __name__ == '__main__':
