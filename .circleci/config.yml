@@ -1,6 +1,11 @@
  version: 2
+ workflows:
+   version: 2
+   test:
+     jobs:
+       - test-categories
  jobs:
-   build:
+   test-categories:
      docker:
        - image: circleci/python:3.8.0
      steps:
