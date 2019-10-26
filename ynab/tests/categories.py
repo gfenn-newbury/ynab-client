@@ -11,7 +11,7 @@ class CategoryListTests(unittest.TestCase):
 
 class CategoryStorageTests(unittest.TestCase):
 
-    from objects import category
+    from ..objects import category
 
     def get_test_category(self):
         test_category = self.category(

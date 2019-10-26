@@ -1,13 +1,10 @@
 import unittest
-import sys
 import os
-
-sys.path.append('..')
 
 
 class AuthTest(unittest.TestCase):
 
-    from api import auth
+    from ..api import auth
 
     def test_auth_from_file(self):
         with open('./config/access.conf', 'w') as f:
