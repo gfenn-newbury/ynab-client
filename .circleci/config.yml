@@ -11,11 +11,11 @@
        - image: circleci/python:3.8.0
      steps:
        - checkout
-       - run: python -m ynab.tests.test-auth.AuthTest
+       - run: python -m ynab.tests.test-auth
    test-categories:
      docker:
        - image: circleci/python:3.8.0
      steps:
        - checkout
-       - run: python -m ynab.tests.test-categories.CategoryListTests
-       - run: python -m ynab.tests.test-categories.CategoryStorageTests
+       - run: python -m ynab.tests.test-categories
+       - run: python -m ynab.tests.test-categories
