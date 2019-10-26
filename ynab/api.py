@@ -1,5 +1,5 @@
 import os
-import logger
+import logging
 import base64
 import requests
 
@@ -8,7 +8,7 @@ class auth:
 
     isAuthenticated = False
 
-    def __init__(self, key='', logger=logger.getLogger()):
+    def __init__(self, key='', logger=logging.getLogger()):
         self.logger = logger
         if key:
             self.key = key
@@ -18,7 +18,7 @@ class auth:
 
     def get_apikey(self):
         if not os.path.isfile('./config/access.conf') and not self.key:
-            logger.debug('Api Key not found. Getting user to enter it')
+            logging.debug('Api Key not found. Getting user to enter it')
             apikey = input('Please enter your YNAB API key: ')
             apikeyEncoded = base64.b64encode(apikey)
             f = open('.config/access.conf', 'w')
