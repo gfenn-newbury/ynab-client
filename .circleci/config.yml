@@ -3,6 +3,7 @@
    version: 2
    test:
      jobs:
+       - test-auth
        - test-categories
  jobs:
    test-auth:
