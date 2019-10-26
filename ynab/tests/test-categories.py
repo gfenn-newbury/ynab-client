@@ -1,16 +1,16 @@
 import unittest
-from lib import category_api
+from ynab.lib import category_api
 
 
-class CategoryListTests(unittest.TestCase):
+class CategoryTests(unittest.TestCase):
 
-    def get_api_categories(self):
+    def test_get_api_categories(self):
         self.assertEqual(True, True)
 
 
 class CategoryStorageTests(unittest.TestCase):
 
-    def get_test_category(self):
+    def test_get_test_category(self):
         test_category = category_api.category(
             'TestCat',
             'TestCatParent',
