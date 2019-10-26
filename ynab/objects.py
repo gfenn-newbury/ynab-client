@@ -3,7 +3,7 @@
 class transaction:
 
     import datetime
-    import category
+    from .objects import category
 
     def __init__(
         self,
