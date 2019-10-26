@@ -1,5 +1,5 @@
 import unittest
-from lib import category_api
+from ynab.lib import category_api
 
 
 class CategoryListTests(unittest.TestCase):
