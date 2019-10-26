@@ -17,5 +17,5 @@
        - image: circleci/python:3.8.0
      steps:
        - checkout
-       - run: python ynab.test-categories.CategoryListTests
-       - run: python ynab.test-categories.CategoryStorageTests
+       - run: python -m ynab.test-categories.CategoryListTests
+       - run: python -m ynab.test-categories.CategoryStorageTests
