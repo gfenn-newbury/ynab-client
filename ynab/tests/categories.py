@@ -1,6 +1,5 @@
 import unittest
 import sys
-from objects import category
 sys.path.append('..')
 
 
@@ -12,8 +11,10 @@ class CategoryListTests(unittest.TestCase):
 
 class CategoryStorageTests(unittest.TestCase):
 
+    from objects import category
+
     def get_test_category(self):
-        test_category = category(
+        test_category = self.category(
             'TestCat',
             'TestCatParent',
             '',

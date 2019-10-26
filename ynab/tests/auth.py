@@ -1,22 +1,24 @@
 import unittest
 import sys
 import os
-from api import auth
+
 sys.path.append('..')
 
 
 class AuthTest(unittest.TestCase):
 
+    from api import auth
+
     def test_auth_from_file(self):
         with open('./config/access.conf', 'w') as f:
             f.writeline('VGVzdAo=')
-        auth()
+        self.auth()
         os.remove('./config/access.conf')
-        self.assertEqual(auth.get_apikey(), 'Test')
+        self.assertEqual(self.auth.get_apikey(), 'Test')
 
     def test_auth_from_key(self):
-        auth(key='Test')
-        self.assertEqual(auth.get_apikey(), 'Test')
+        self.auth(key='Test')
+        self.assertEqual(self.auth.get_apikey(), 'Test')
 
 
 if __name__ == '__main__':
