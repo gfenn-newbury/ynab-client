@@ -1,5 +1,5 @@
 import unittest
-from objects import category_api
+from lib import category_api
 
 
 class CategoryListTests(unittest.TestCase):
