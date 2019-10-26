@@ -1,6 +1,19 @@
+
+
 class transaction:
 
-    def __init__(self, date, payee, category, amountIn, amountOut, memo):
+    import datetime
+    import category
+
+    def __init__(
+        self,
+        date=datetime.datetime.now(),
+        payee='',
+        category=category(),
+        amountIn=0.00,
+        amountOut=0.00,
+        memo=''
+    ):
         self.date = date
         self.payee = payee
         self.category = category
@@ -18,9 +31,17 @@ class transaction:
                 'Memo': self.memo,
                 }
 
+
 class category:
 
-    def __init__(self, name, parent, catType, children, budgeted):
+    def __init__(
+        self,
+        name='',
+        parent='',
+        catType='',
+        children=[],
+        budgeted=0
+    ):
         self.name = name
         self.type = catType
         if parent and children:
@@ -31,22 +52,30 @@ class category:
         elif children:
             self.children = children
 
-    def addChild(child):
+    def addChild(self, child):
         self.children.append(child)
 
     def getName(self):
         return self.name
+
 
 class budget:
 
     def __init__(self, categories):
         self.categories = categories
 
+
 class account:
 
-    def __init__(self, name, transactions, opened, closed):
+    def __init__(
+            self,
+            name='',
+            transactions=[],
+            opened='',
+            closed=''
+    ):
         self.name = name
-        self.transactions = transactions # List of transactions which belong to this account
+        self.transactions = transactions
         self.opened = opened
         self.closed = closed
 
@@ -55,11 +84,12 @@ class account:
 
     def to_dict(self):
         return {
-                'Name' : self.name,
-                'Transactions' : self.transactions,
-                'Opened' : self.opened,
-                'Closed' : self.closed
+                'Name': self.name,
+                'Transactions': self.transactions,
+                'Opened': self.opened,
+                'Closed': self.closed
                 }
+
 
 class payee:
 

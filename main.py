@@ -1,26 +1,26 @@
-import os
-import base64
 import logging
 import logging.handlers
-from ynab.objects import transaction
-from ynab.api import client
+from ynab import api
 
-logger = logging.getLogger('YNABPython')
-logger.setLevel(logging.DEBUG)
 
-fh = logging.handlers.SysLogHandler(address = '/dev/log')
+def setupLogging():
+    logger = logging.getLogger('YNABPython')
+    logger.setLevel(logging.DEBUG)
 
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
-logger.addHandler(fh)
+    fh = logging.handlers.SysLogHandler(address='./ynab.log')
 
-def connect_api():
-    ynab()
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
 
 def main():
-    #api = connect_api()
-    trans = transaction('01/01/19','test','category:test','0.00','1.00','test')
-    print(trans.to_dict())
+    logger = setupLogging()
+    api.auth(key='', logger=logger)
+
 
 if __name__ == '__main__':
     main()
