@@ -18,4 +18,3 @@
      steps:
        - checkout
        - run: python -m ynab.tests.test-categories
-       - run: python -m ynab.tests.test-categories
