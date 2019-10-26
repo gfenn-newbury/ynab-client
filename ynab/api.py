@@ -10,9 +10,8 @@ class auth:
 
     def __init__(self, key='', logger=logging.getLogger()):
         self.logger = logger
-        if key:
-            self.key = key
-        else:
+        self.key = key
+        if not self.key:
             self.key = self.get_apikey()
         self.authenticate()
 
