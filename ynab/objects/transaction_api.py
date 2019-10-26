@@ -1,13 +1,13 @@
 class transaction:
 
     import datetime
-    from objects import category
+    from objects import category_api
 
     def __init__(
         self,
         date=datetime.datetime.now(),
         payee='',
-        category=category(),
+        category=category_api.category(),
         amountIn=0.00,
         amountOut=0.00,
         memo=''
