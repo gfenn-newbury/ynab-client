@@ -1,6 +1,6 @@
 import unittest
-import api
 import os
+from ynab import api
 
 
 class AuthTest(unittest.TestCase):
