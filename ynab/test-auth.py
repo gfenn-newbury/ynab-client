@@ -1,5 +1,4 @@
 import unittest
-import os
 import api
 
 
@@ -9,7 +8,6 @@ class AuthTest(unittest.TestCase):
         with open('./config/access.conf', 'w') as f:
             f.writeline('VGVzdAo=')
         api.auth()
-        os.remove('./config/access.conf')
         self.assertEqual(api.auth.get_apikey(), 'Test')
 
     def test_auth_from_key(self):
