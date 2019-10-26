@@ -1,5 +1,5 @@
 import os
-import logger
+import logging
 import base64
 import requests
 
@@ -8,17 +8,16 @@ class auth:
 
     isAuthenticated = False
 
-    def __init__(self, key='', logger=logger.getLogger()):
+    def __init__(self, key='', logger=logging.getLogger()):
         self.logger = logger
-        if key:
-            self.key = key
-        else:
+        self.key = key
+        if not self.key:
             self.key = self.get_apikey()
         self.authenticate()
 
     def get_apikey(self):
-        if not os.path.isfile('./config/access.conf') or not self.key:
-            logger.debug('Api Key not found. Getting user to enter it')
+        if not os.path.isfile('./config/access.conf') and not self.key:
+            logging.debug('Api Key not found. Getting user to enter it')
             apikey = input('Please enter your YNAB API key: ')
             apikeyEncoded = base64.b64encode(apikey)
             f = open('.config/access.conf', 'w')
@@ -30,8 +29,8 @@ class auth:
             apikeyEncoded = f.read()
             f.close()
             return base64.b64decode(apikeyEncoded)
-        else:
-            return
+        elif self.key:
+            return self.key
 
     def authenticate(self):
         url = 'https://api.youneedabudget.com'

@@ -3,11 +3,18 @@
    version: 2
    test:
      jobs:
+       - test-auth
        - test-categories
  jobs:
+   test-auth:
+     docker:
+       - image: circleci/python:3.8.0
+     steps:
+       - checkout
+       - run: python ynab/test-auth.py
    test-categories:
      docker:
        - image: circleci/python:3.8.0
      steps:
        - checkout
-       - run: python test.py
+       - run: python ynab/test-categories.py
