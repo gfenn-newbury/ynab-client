@@ -4,10 +4,13 @@ from ynab.lib import category_api
 
 class CategoryTests(unittest.TestCase):
 
-    def get_api_categories(self):
+    def test_get_api_categories(self):
         self.assertEqual(True, True)
 
-    def get_test_category(self):
+
+class CategoryStorageTests(unittest.TestCase):
+
+    def test_get_test_category(self):
         test_category = category_api.category(
             'TestCat',
             'TestCatParent',
