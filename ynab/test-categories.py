@@ -1,5 +1,5 @@
 import unittest
-from .. import objects
+from objects import category
 
 
 class CategoryListTests(unittest.TestCase):
@@ -11,7 +11,7 @@ class CategoryListTests(unittest.TestCase):
 class CategoryStorageTests(unittest.TestCase):
 
     def get_test_category(self):
-        test_category = objects.category(
+        test_category = category(
             'TestCat',
             'TestCatParent',
             '',
