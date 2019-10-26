@@ -5,7 +5,8 @@ class account:
             name='',
             transactions=[],
             opened='',
-            closed=''
+            closed='',
+            key=''
     ):
         self.name = name
         self.transactions = transactions

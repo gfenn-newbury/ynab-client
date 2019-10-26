@@ -1,6 +1,6 @@
 import logging
 import logging.handlers
-from ynab import api
+from ynab import api, lib
 
 
 def setupLogging():
@@ -19,7 +19,11 @@ def setupLogging():
 
 def main():
     logger = setupLogging()
-    api.auth(key='', logger=logger)
+    api.auth(
+        key='',
+        logger=logger
+    )
+    lib.budget_api.budget(key='')
 
 
 if __name__ == '__main__':
