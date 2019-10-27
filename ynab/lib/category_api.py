@@ -48,6 +48,7 @@ class Category:
         self.__goal_target = goal_target
         self.__goal_target_month = goal_target_month
         self.__goal_percentage_complete = goal_percentage_complete
+        self.__deleted = deleted
 
 
     def addChild(self, child):
