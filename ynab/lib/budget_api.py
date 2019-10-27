@@ -1,4 +1,4 @@
-from ynab.lib import account_api
+from ynab.lib import account_api, category_api
 
 
 class Budget:
@@ -33,6 +33,30 @@ class Budget:
             )
         self.__accounts = accounts
 
+    def __create_category(self):
+        categories = []
+        for category in self.__budget['budget']['category']:
+            categories.append(
+                category_api.Category(
+                    category['id'],
+                    category['group_id'],
+                    category['name'],
+                    category['hidden'],
+                    category['original_category_group_id'],
+                    category['note'],
+                    category['budgeted'],
+                    category['activity'],
+                    category['balance'],
+                    category['goal_type'],
+                    category['goal_creation_month'],
+                    category['goal_target'],
+                    category['goal_target_month'],
+                    category['goal_percentage_complete'],
+                    category['deleted']
+                )
+            )
+        self.__categories = categories
+
     def print_budget(self):
         print('-------------------------------------------')
         print(f'| Budget {self.__budget["budget"]["name"]} |')
@@ -46,3 +70,6 @@ class Budget:
 
     def get_budget_json(self):
         return self.__budget['budget']
+
+    def get_categories(self):
+        return self.__categories

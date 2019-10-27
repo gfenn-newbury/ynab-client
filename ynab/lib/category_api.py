@@ -50,7 +50,6 @@ class Category:
         self.__goal_percentage_complete = goal_percentage_complete
         self.__deleted = deleted
 
-
     def addChild(self, child):
         self.children.append(child)
 
