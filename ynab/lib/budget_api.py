@@ -1,43 +1,48 @@
-import requests
+from ynab.lib import account_api
 
 
-class budget:
+class Budget:
 
-    __categories = []
-    __url = 'https://api.youneedabudget.com/v1/budgets'
-    __key = None
-    __budget_overview = None
-    __budgets = None
+    __accounts = None
+    __categories = None
+    __payees = None
+    __transactions = None
+    __budget = None
 
-    def __init__(self, key=''):
-        self.__key = key
-        self.__get_all_budgets()
-
-    def __get_all_budgets(self):
-        all_budgets = []
-        h = {
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {self.key}',
-        }
-        budgets = requests.get(self.url, headers=h).json()['data']['budgets']
-        self.__budget_overview = budgets
-        for budget in budgets:
-            url = f'{self.url}/{budget["id"]}'
-            r = requests.get(url, headers=h).json()['data']
-            all_budgets.append(r)
-        self.__budgets = all_budgets
-
-    def __create_categories(self):
-        raise NotImplementedError()
-
-    def __create_transactions(self):
-        raise NotImplementedError()
-
-    def __create_payees(self):
-        raise NotImplementedError()
+    def __init__(self, budget):
+        self.__budget = budget
+        self.__create_accounts()
 
     def __create_accounts(self):
-        raise NotImplementedError
+        accounts = []
+        for account in self.__budget['budget']['accounts']:
+            accounts.append(
+                account_api.Account(
+                    account['id'],
+                    account['name'],
+                    account['type'],
+                    account['on_budget'],
+                    account['closed'],
+                    account['note'],
+                    account['balance'],
+                    account['cleared_balance'],
+                    account['uncleared_balance'],
+                    account['transfer_payee_id'],
+                    account['deleted']
+                )
+            )
+        self.__accounts = accounts
 
-    def get_budgets(self):
-        return self.__budget_overview
+    def print_budget(self):
+        print('-------------------------------------------')
+        print(f'| Budget {self.__budget["budget"]["name"]} |')
+        print('-------------------------------------------')
+        print('Name\t\t\t\tType\tUncBal\tBal')
+        for account in self.__accounts:
+            account.print_account()
+
+    def get_budget_id(self):
+        return self.__budget['budget']['id']
+
+    def get_budget_json(self):
+        return self.__budget['budget']
