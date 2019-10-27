@@ -5,15 +5,18 @@ This is a new project for YNAB Python client.
 
 View a changelog [here](CHANGELOG.md).
 
-The current version is `0.3.0` [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/feature%2F0.3.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/feature%2F0.3.0)
+## Build Status
 
-The current in-development version is `v0.4.0` [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0)
-
+| Branch/Tag | Description | Status |
+|------------|-------------|--------|
+| master | Repository master | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master) |
+| v0.4.0 | Current release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0) |
+| v0.5.0 | In-development release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.5.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.5.0) |
 ---
 
 # Purpose and Usage
 
-The purpose of this project is primarily just to mess around with REST APIs. However, the aim is to get a fully functional desktop client which can view all aspects of YNAB. There are several components:
+The purpose of this project is primarily just to mess around with REST APIs. If you're looking for a proper solution, have a look at [ynab-client-python](https://github.com/gchiam/ynab-client-python) by [gchiam](https://github.com/gchiam). With that said, however, the aim is to get a fully functional desktop client which can view all aspects of YNAB. There are several components:
 
 ## APIs
 

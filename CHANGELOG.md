@@ -1,6 +1,11 @@
 # Changelog
 
-### 0.3.0
+### 0.4.0 (2019/10/27)
+**Changes**
+- Implemented `ynab.api.Client`, `ynab.lib.budget_api.Budget`, and `ynab.lib.account_api.Account` to allow for correct storage of budgets and accounts
+- Implemented `ynab.tests.test_api.ClientTests` to test functionality of budgets and accounts via the `ynab.api.Client` module
+
+### 0.3.0 (2019/10/26)
 **Changes**
 - Added unit testing
 - Created new layout to allow for tests
