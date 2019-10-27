@@ -43,8 +43,7 @@ class Client:
     def get_accounts(self, budget_id=''):
         for budget in self.__budgets:
             if budget.get_budget_id() == budget_id:
-                json = budget.get_budget_json()
-                return json['budget']['accounts']
+                return budget.get_budget_json()['accounts']
 
     def print_budget(self):
         for budget in self.__budgets:
