@@ -1,7 +1,7 @@
 class transaction:
 
     import datetime
-    from objects import category_api
+    from ynab.lib import category_api
 
     def __init__(
         self,

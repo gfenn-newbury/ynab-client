@@ -1,46 +1,50 @@
-import os
-import logging
-import base64
 import requests
+from ynab.lib import budget_api
 
 
-class auth:
+class Client:
 
-    isAuthenticated = False
+    __categories = []
+    __url = 'https://api.youneedabudget.com/v1/budgets'
+    __key = None
+    __budget_overview = None
+    __budgets_json = None
+    __budgets = None
 
-    def __init__(self, key='', logger=logging.getLogger()):
-        self.logger = logger
-        self.key = key
-        if not self.key:
-            self.key = self.get_apikey()
-        self.authenticate()
+    def __init__(self, key='', budgets=None):
+        self.__key = key
+        self.__budgets_json = budgets
+        if not self.__budgets_json:
+            self.__get_budgets()
+        self.__create_budgets()
+        self.print_budget()
 
-    def get_apikey(self):
-        if not os.path.isfile('./config/access.conf') and not self.key:
-            logging.debug('Api Key not found. Getting user to enter it')
-            apikey = input('Please enter your YNAB API key: ')
-            apikeyEncoded = base64.b64encode(apikey)
-            f = open('.config/access.conf', 'w')
-            f.write()
-            f.close()
-            return apikey
-        elif not self.key:
-            f = open('./config/access.conf', 'r')
-            apikeyEncoded = f.read()
-            f.close()
-            return base64.b64decode(apikeyEncoded)
-        elif self.key:
-            return self.key
-
-    def authenticate(self):
-        url = 'https://api.youneedabudget.com'
+    def __get_budgets(self):
+        all_budgets = []
         h = {
-            'Authorization': f'Bearer {self.key}',
             'Content-Type': 'application/json',
+            'Authorization': f'Bearer {self.__key}',
         }
-        r = requests.get(url, headers=h)
-        if r.status_code != '404':
-            self.isAuthenticated = True
+        budgets = requests.get(self.__url, headers=h).json()['data']['budgets']
+        self.__budget_overview = budgets
+        for budget in budgets:
+            url = f'{self.__url}/{budget["id"]}'
+            r = requests.get(url, headers=h).json()['data']
+            all_budgets.append(r)
+        self.__budgets_json = all_budgets
 
-    def get_auth(self):
-        return self.isAuthenticated
+    def __create_budgets(self):
+        budgets = []
+        for budget in self.__budgets_json:
+            print(f'Budget ID: {budget["budget"]["id"]}')
+            budgets.append(budget_api.Budget(budget))
+        self.__budgets = budgets
+
+    def get_accounts(self, budget_id=''):
+        for budget in self.__budgets:
+            if budget.get_budget_id() == budget_id:
+                return budget.get_budget_json()['accounts']
+
+    def print_budget(self):
+        for budget in self.__budgets:
+            budget.print_budget()
