@@ -11,9 +11,11 @@ class Client:
     __budgets_json = None
     __budgets = None
 
-    def __init__(self, key=''):
+    def __init__(self, key='', budgets=None):
         self.__key = key
-        self.__get_budgets()
+        self.__budgets_json = budgets
+        if not self.__budgets_json:
+            self.__get_budgets()
         self.__create_budgets()
         self.print_budget()
 
@@ -38,17 +40,11 @@ class Client:
             budgets.append(budget_api.Budget(budget))
         self.__budgets = budgets
 
-    def __create_categories(self):
-        raise NotImplementedError()
-
-    def __create_transactions(self):
-        raise NotImplementedError()
-
-    def __create_payees(self):
-        raise NotImplementedError()
-
-    def __create_accounts(self):
-        raise NotImplementedError()
+    def get_accounts(self, budget_id=''):
+        for budget in self.__budgets:
+            if budget.get_budget_id() == budget_id:
+                json = budget.get_budget_json()
+                return json['budget']['accounts']
 
     def print_budget(self):
         for budget in self.__budgets:

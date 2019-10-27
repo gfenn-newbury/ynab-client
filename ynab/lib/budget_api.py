@@ -33,10 +33,16 @@ class Budget:
             )
         self.__accounts = accounts
 
-    def get_budget(self):
+    def print_budget(self):
         print('-------------------------------------------')
         print(f'| Budget {self.__budget["budget"]["name"]} |')
         print('-------------------------------------------')
         print('Name\t\t\t\tType\tUncBal\tBal')
         for account in self.__accounts:
-            account.get_account()
+            account.print_account()
+
+    def get_budget_id(self):
+        return self.__budget['budget']['id']
+
+    def get_budget_json(self):
+        return self.__budget['budget']

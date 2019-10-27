@@ -53,7 +53,7 @@ class Account:
     def get_closed(self):
         return self.__closed
 
-    def get_account(self):
+    def print_account(self):
         print(
             f'{self.__name}\t\t\t{self.__type}\t{self.__uncleared_balance}\t{self.__cleared_balance}'
         )
