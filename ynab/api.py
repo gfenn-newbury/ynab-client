@@ -48,4 +48,4 @@ class Client:
 
     def print_budget(self):
         for budget in self.__budgets:
-            budget.get_budget()
+            budget.print_budget()
