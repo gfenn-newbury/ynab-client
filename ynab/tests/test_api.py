@@ -180,10 +180,10 @@ class ClientTests(unittest.TestCase):
     def test_create_budget(self):
         client = ynab.api.Client(budgets=self.__test_data)
         accounts = client.get_accounts(
-            budget_id=self.__test_data['data']['budget']['id'])
+            budget_id=self.__test_data[0]['budget']['id'])
         self.assertEqual(
             accounts,
-            self.__test_data['data']['budget']['accounts']
+            self.__test_data[0]['budget']['accounts']
         )
 
 
