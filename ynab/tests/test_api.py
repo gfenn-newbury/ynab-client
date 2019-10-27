@@ -4,7 +4,7 @@ import ynab.api
 
 class ClientTests(unittest.TestCase):
 
-    __test_data = test_budget = {
+    __test_data = test_budget = [{
       "data": {
         "budget": {
           "id": "string",
@@ -177,7 +177,7 @@ class ClientTests(unittest.TestCase):
         },
         "server_knowledge": 0
       }
-    }
+    }]
 
     def test_create_budget(self):
         client = ynab.api.Client(budgets=self.__test_data)
