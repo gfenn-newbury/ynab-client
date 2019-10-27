@@ -195,6 +195,7 @@ class ClientTests(unittest.TestCase):
         categories = client.get_categories(
             budget_id=budget_id
         )
+        print(categories)
         self.assertEqual(
             categories,
             test_data[0]['budget']['categories']
