@@ -16,7 +16,7 @@ View a changelog [here](CHANGELOG.md).
 
 # Purpose and Usage
 
-The purpose of this project is primarily just to mess around with REST APIs. If you're looking for a proper solution, have a look at [ynab-client-python](https://github.com/gchiam/ynab-client-python) by [gchiam] (https://github.com/gchiam). With that said, however, the aim is to get a fully functional desktop client which can view all aspects of YNAB. There are several components:
+The purpose of this project is primarily just to mess around with REST APIs. If you're looking for a proper solution, have a look at [ynab-client-python](https://github.com/gchiam/ynab-client-python) by [gchiam](https://github.com/gchiam). With that said, however, the aim is to get a fully functional desktop client which can view all aspects of YNAB. There are several components:
 
 ## APIs
 
