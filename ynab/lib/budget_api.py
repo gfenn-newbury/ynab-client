@@ -12,6 +12,7 @@ class Budget:
     def __init__(self, budget):
         self.__budget = budget
         self.__create_accounts()
+        self.__create_category()
 
     def __create_accounts(self):
         accounts = []
@@ -35,11 +36,11 @@ class Budget:
 
     def __create_category(self):
         categories = []
-        for category in self.__budget['budget']['category']:
+        for category in self.__budget['budget']['categories']:
             categories.append(
                 category_api.Category(
                     category['id'],
-                    category['group_id'],
+                    category['category_group_id'],
                     category['name'],
                     category['hidden'],
                     category['original_category_group_id'],
@@ -53,7 +54,7 @@ class Budget:
                     category['goal_target_month'],
                     category['goal_percentage_complete'],
                     category['deleted']
-                )
+                ).get_category()
             )
         self.__categories = categories
 

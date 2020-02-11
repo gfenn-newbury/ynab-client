@@ -4,7 +4,7 @@ class Category:
     __category_group_id = None
     __name = None
     __hidden = None
-    __originial_category_group_id = None
+    __original_category_group_id = None
     __note = None
     __budgeted = None
     __activity = None
@@ -38,7 +38,7 @@ class Category:
         self.__category_group_id = category_group_id
         self.__name = name
         self.__hidden = hidden
-        self.__originial_category_group_id = original_category_group_id
+        self.__original_category_group_id = original_category_group_id
         self.__note = note
         self.__budgeted = budgeted
         self.__activity = activity
@@ -55,3 +55,23 @@ class Category:
 
     def getName(self):
         return self.name
+
+    def get_category(self):
+        category = {
+            'id': self.__id,
+            'category_group_id': self.__category_group_id,
+            'name': self.__name,
+            'hidden': self.__hidden,
+            'original_category_group_id': self.__original_category_group_id,
+            'note': self.__note,
+            'budgeted': self.__budgeted,
+            'activity': self.__activity,
+            'balance': self.__balance,
+            'goal_type': self.__goal_type,
+            'goal_creation_month': self.__goal_creation_month,
+            'goal_target': self.__goal_target,
+            'goal_target_month': self.__goal_target_month,
+            'goal_percentage_complete': self.__goal_percentage_complete,
+            'deleted': self.__deleted
+        }
+        return category

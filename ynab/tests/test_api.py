@@ -195,11 +195,7 @@ class ClientTests(unittest.TestCase):
         categories = client.get_categories(
             budget_id=budget_id
         )
-        print(categories)
-        self.assertEqual(
-            categories,
-            test_data[0]['budget']['categories']
-        )
+        self.assertTrue(test_data[0]['budget']['categories'] == categories)
 
 
 if __name__ == '__main__':
