@@ -45,6 +45,11 @@ class Client:
             if budget.get_budget_id() == budget_id:
                 return budget.get_budget_json()['accounts']
 
+    def get_categories(self, budget_id=''):
+        for budget in self.__budgets:
+            if budget.get_budget_id() == budget_id:
+                return budget.get_categories()
+
     def print_budget(self):
         for budget in self.__budgets:
             budget.print_budget()

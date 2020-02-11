@@ -186,6 +186,17 @@ class ClientTests(unittest.TestCase):
             self.__test_data[0]['budget']['accounts']
         )
 
+    def test_get_categories(self):
+        test_data = self.__test_data
+        budget_id = test_data[0]['budget']['id']
+        client = ynab.api.Client(
+            budgets=test_data
+        )
+        categories = client.get_categories(
+            budget_id=budget_id
+        )
+        self.assertTrue(test_data[0]['budget']['categories'] == categories)
+
 
 if __name__ == '__main__':
     unittest.main()
