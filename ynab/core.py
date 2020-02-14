@@ -2,7 +2,7 @@ import requests
 from ynab.lib import budget_api
 
 
-class Client:
+class Api:
 
     __categories = []
     __url = 'https://api.youneedabudget.com/v1/budgets'

@@ -10,4 +10,4 @@
        - image: circleci/python:3.8.0
      steps:
        - checkout
-       - run: python -m ynab.tests.test_api
+       - run: python -m tests.test_core
