@@ -17,44 +17,14 @@ class Budget:
     def __create_accounts(self):
         accounts = []
         for account in self.__budget['budget']['accounts']:
-            accounts.append(
-                account_api.Account(
-                    account['id'],
-                    account['name'],
-                    account['type'],
-                    account['on_budget'],
-                    account['closed'],
-                    account['note'],
-                    account['balance'],
-                    account['cleared_balance'],
-                    account['uncleared_balance'],
-                    account['transfer_payee_id'],
-                    account['deleted']
-                )
-            )
+            accounts.append(account_api.Account(account))
         self.__accounts = accounts
 
     def __create_category(self):
         categories = []
         for category in self.__budget['budget']['categories']:
             categories.append(
-                category_api.Category(
-                    category['id'],
-                    category['category_group_id'],
-                    category['name'],
-                    category['hidden'],
-                    category['original_category_group_id'],
-                    category['note'],
-                    category['budgeted'],
-                    category['activity'],
-                    category['balance'],
-                    category['goal_type'],
-                    category['goal_creation_month'],
-                    category['goal_target'],
-                    category['goal_target_month'],
-                    category['goal_percentage_complete'],
-                    category['deleted']
-                ).get_category()
+                category_api.Category(category)
             )
         self.__categories = categories
 
@@ -72,5 +42,20 @@ class Budget:
     def get_budget_json(self):
         return self.__budget['budget']
 
-    def get_categories(self):
+    def get_category_json_list(self):
+        json_list = []
+        for category in self.__categories:
+            json_list.append(category.get_category_json())
+        return json_list
+
+    def get_category_objects_list(self):
         return self.__categories
+
+    def get_account_objects_list(self):
+        return self.__accounts
+
+    def get_account_json_list(self):
+        json_list = []
+        for account in self.__accounts:
+            json_list.append(account.get_account_json())
+        return json_list
