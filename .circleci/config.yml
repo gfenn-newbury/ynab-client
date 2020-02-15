@@ -28,4 +28,4 @@ jobs:
       - checkout
       - run: sudo python setup.py sdist bdist_wheel
       - store_artifacts:
-        path: dist
+          path: dist
