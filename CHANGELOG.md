@@ -1,5 +1,19 @@
 # Changelog
 
+### 0.5.2 (2020/02/15)
+**Changes**
+- Added `setup.py`
+- Added `Makefile`
+- Added `requirements.txt`
+- Added build job to circleci tests
+**Notes**
+- ynab-client should now be an installable module
+
+### 0.5.1 (2020/02/15)
+**Changes**
+- Restructured `ynab.lib.budget_api` to return JSON of various objects
+- Added in test `tests.test_get_accounts`
+
 ### 0.5.0 (2020/02/14)
 **Changes**
 - Restructured classes such that:
