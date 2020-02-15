@@ -16,39 +16,25 @@ class Category:
     __goal_percentage_complete = None
     __deleted = None
 
-    def __init__(
-        self,
-        id,
-        category_group_id,
-        name,
-        hidden,
-        original_category_group_id,
-        note,
-        budgeted,
-        activity,
-        balance,
-        goal_type,
-        goal_creation_month,
-        goal_target,
-        goal_target_month,
-        goal_percentage_complete,
-        deleted
-    ):
-        self.__id = id
-        self.__category_group_id = category_group_id
-        self.__name = name
-        self.__hidden = hidden
-        self.__original_category_group_id = original_category_group_id
-        self.__note = note
-        self.__budgeted = budgeted
-        self.__activity = activity
-        self.__balance = balance
-        self.__goal_type = goal_type
-        self.__goal_creation_month = goal_creation_month
-        self.__goal_target = goal_target
-        self.__goal_target_month = goal_target_month
-        self.__goal_percentage_complete = goal_percentage_complete
-        self.__deleted = deleted
+    def __init__(self, category):
+        self.__create_category(category)
+
+    def __create_category(self, category):
+        self.__id = category['id']
+        self.__category_group_id = category['category_group_id']
+        self.__name = category['name']
+        self.__hidden = category['hidden']
+        self.__original_category_group_id = category['original_category_group_id']
+        self.__note = category['note']
+        self.__budgeted = category['budgeted']
+        self.__activity = category['activity']
+        self.__balance = category['balance']
+        self.__goal_type = category['goal_type']
+        self.__goal_creation_month = category['goal_creation_month']
+        self.__goal_target = category['goal_target']
+        self.__goal_target_month = category['goal_target_month']
+        self.__goal_percentage_complete = category['goal_percentage_complete']
+        self.__deleted = category['deleted']
 
     def addChild(self, child):
         self.children.append(child)

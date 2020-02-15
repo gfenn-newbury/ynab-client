@@ -5,9 +5,15 @@
      jobs:
        - test-api
  jobs:
-   test-api:
+   test_core:
      docker:
        - image: circleci/python:3.8.0
      steps:
        - checkout
        - run: python -m tests.test_core
+  test_account_api:
+    docker:
+      - image: circleci/python:3.8.0
+    steps:
+      - checkout
+      - run: python -m tests.test_account_api
