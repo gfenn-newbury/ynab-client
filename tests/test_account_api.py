@@ -44,7 +44,7 @@ class ClientTests(unittest.TestCase):
     def test_get_account(self):
         account = account_api.Account(self.__test_data)
         expected = self.__test_data
-        actual = account.get_account()
+        actual = account.get_account_json()
         self.assertEqual(expected, actual)
 
 

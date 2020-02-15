@@ -42,7 +42,7 @@ class Category:
     def getName(self):
         return self.name
 
-    def get_category(self):
+    def get_category_json(self):
         category = {
             'id': self.__id,
             'category_group_id': self.__category_group_id,

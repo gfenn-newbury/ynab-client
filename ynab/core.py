@@ -43,12 +43,12 @@ class Api:
     def get_accounts(self, budget_id=''):
         for budget in self.__budgets:
             if budget.get_budget_id() == budget_id:
-                return budget.get_budget_json()['accounts']
+                return budget.get_account_json_list()
 
     def get_categories(self, budget_id=''):
         for budget in self.__budgets:
             if budget.get_budget_id() == budget_id:
-                return budget.get_categories()
+                return budget.get_category_json_list()
 
     def print_budget(self):
         for budget in self.__budgets:

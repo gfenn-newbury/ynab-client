@@ -53,4 +53,17 @@ class Account:
         )
 
     def get_account_json(self):
-        return self.__account_json
+        account_json = {
+            'id': self.__id,
+            'name': self.__name,
+            'type': self.__type,
+            'on_budget': self.__on_budget,
+            'closed': self.__closed,
+            'note': self.__note,
+            'balance': self.__balance,
+            'cleared_balance': self.__cleared_balance,
+            'uncleared_balance': self.__uncleared_balance,
+            'transfer_payee_id': self.__transfer_payee_id,
+            'deleted': self.__deleted
+        }
+        return account_json

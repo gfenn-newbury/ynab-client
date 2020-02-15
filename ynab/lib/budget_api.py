@@ -42,13 +42,20 @@ class Budget:
     def get_budget_json(self):
         return self.__budget['budget']
 
-    def get_category_list(self):
+    def get_category_json_list(self):
+        json_list = []
+        for category in self.__categories:
+            json_list.append(category.get_category_json())
+        return json_list
+
+    def get_category_objects_list(self):
         return self.__categories
 
-    def get_account_list(self):
+    def get_account_objects_list(self):
         return self.__accounts
 
-    def get_account(self, id):
+    def get_account_json_list(self):
+        json_list = []
         for account in self.__accounts:
-            if account.get_id() == id:
-                return account.get_account_json()
+            json_list.append(account.get_account_json())
+        return json_list
