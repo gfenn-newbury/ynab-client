@@ -1,10 +1,13 @@
 version: 2
 workflows:
- version: 2
- test:
-   jobs:
-     - test_core
-     - test_account_api
+  version: 2
+  test:
+    jobs:
+      - test_core
+      - test_account_api
+  build:
+    jobs:
+      - build
 jobs:
   test_core:
     docker:
@@ -18,3 +21,9 @@ jobs:
     steps:
       - checkout
       - run: python -m tests.test_account_api
+  build:
+    docker:
+      - image: circleci/python:3.8.0
+    steps:
+      - checkout
+      - run: python setup.py install
