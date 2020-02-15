@@ -26,4 +26,4 @@ jobs:
       - image: circleci/python:3.8.0
     steps:
       - checkout
-      - run: python setup.py install
+      - run: sudo python setup.py install
