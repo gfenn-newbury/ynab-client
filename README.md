@@ -1,4 +1,4 @@
-# YNAB Python project [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master)
+# YNAB Python project [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable)
 
 
 This is a new project for YNAB Python client.
@@ -7,10 +7,10 @@ View a changelog [here](CHANGELOG.md).
 
 ## Build Status
 
-| Branch/Tag | Description | Status |
-|------------|-------------|--------|
-| stable | Stable release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable) |
-| master | Development | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master) |
+| Branch/Tag | Description | Status | Version |
+|------------|-------------|--------|---------|
+| stable | Stable release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable) | 0.5.2 |
+| master | Development | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master) | 0.5.2 |
 ---
 
 # Purpose and Usage
