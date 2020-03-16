@@ -9,9 +9,8 @@ View a changelog [here](CHANGELOG.md).
 
 | Branch/Tag | Description | Status |
 |------------|-------------|--------|
-| master | Repository master | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master) |
-| v0.4.0 | Current release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.4.0) |
-| v0.5.0 | In-development release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.5.0.svg?style=svg)](https://circleci.com/gh/GNewbury1/ynab-client/tree/release%2Fv0.5.0) |
+| stable | Stable release | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/stable) |
+| master | Development | [![CircleCI](https://circleci.com/gh/GNewbury1/ynab-client/tree/master.svg?style=shield)](https://circleci.com/gh/GNewbury1/ynab-client/tree/master) |
 ---
 
 # Purpose and Usage
